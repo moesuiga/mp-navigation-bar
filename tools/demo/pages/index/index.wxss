@@ -1,0 +1,8 @@
+.nav {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #df3348;
+  color: #fff;
+  margin-bottom: 20rpx;
+}

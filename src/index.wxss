@@ -1,0 +1,117 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 984311 */
+  src: url('https://at.alicdn.com/t/font_984311_tueeblovqw.eot');
+  src: url('https://at.alicdn.com/t/font_984311_tueeblovqw.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_984311_tueeblovqw.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_984311_tueeblovqw.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_984311_tueeblovqw.svg#iconfont') format('svg');
+}
+
+._wrap {
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 999;
+}
+
+// status start
+.status-bar {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+  opacity: 0;
+}
+// status end
+
+// navigation start
+.navigation-bar {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  position: relative;
+
+  .nav-actions {
+    position: absolute;
+    top: 50%;
+    left: 14rpx;
+    transform: translateY(-50%);
+    min-width: 54px;
+    height: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 17px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+    box-shadow: 0 0 1px rgba(234, 234, 234, 1) inset;
+    &.light {
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 0.5px rgba(234, 234, 234, 1);
+    }
+  }
+
+  .slot {
+    position: absolute;
+    left: 0;
+    height: 100%;
+  }
+
+  .nav-title {
+    margin: auto;
+    text-align: center;
+    font-weight: 700;
+    color: #000;
+    &.light {
+      color: #fff;
+    }
+  }
+}
+
+.nav-actions {
+  .nav-back,
+  .nav-home {
+    width: 43px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-back {
+    &:first-child {
+      position: relative;
+      &::after {
+        content: '';
+        width: 1px;
+        height: 18px;
+        background-color: rgba(204, 204, 204, 1);
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%) scaleX(0.5);
+      }
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+    &::before {
+      content: '\e7a1';
+      font-family: iconfont;
+    }
+  }
+
+  .nav-home {
+    &::before {
+      content: '\e7c6';
+      font-family: iconfont;
+    }
+  }
+}
+// navigation end

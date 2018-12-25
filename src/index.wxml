@@ -1,0 +1,14 @@
+<view class="_wrap" style="background: {{bgColor}};">
+  <view class="status-bar" style="height: {{barHeight}}px;"></view>
+  <view class="navigation-bar" style="height: {{isIOS ? 44 : 48}}px;">
+    <view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}">
+      <view wx:if="{{!justOnePage && !hideBack}}" class="nav-back" bindtap="_handleNavBack"></view>
+      <view wx:if="{{showHome}}" class="nav-home" bindtap="_handleNavHome"></view>
+    </view>
+    <view class="slot"><slot name="action"></slot></view>
+    <view class="nav-title {{textStyle === 'light' ? 'light' : ''}}">{{title}}</view>
+  </view>
+</view>
+<view style="padding-top: {{system === 'ios' ? 64 : system === 'iosX' ? 88 : 72}}px">
+  <slot></slot>
+</view>

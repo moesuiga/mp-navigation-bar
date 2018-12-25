@@ -1,0 +1,16 @@
+.custom-action {
+  position: absolute;
+  left: 14rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+.content {
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+button {
+  margin-bottom: 20rpx;
+}

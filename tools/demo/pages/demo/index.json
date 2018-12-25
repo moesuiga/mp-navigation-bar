@@ -1,0 +1,6 @@
+{
+  "navigationBarTextStyle": "light",
+  "usingComponents": {
+    "comp": "../../components/index"
+  }
+}

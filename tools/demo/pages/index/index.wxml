@@ -1,0 +1,3 @@
+<comp show-home="{{false}}">
+  <navigator class="nav" url="/pages/demo/index">Navigate DEMO PAGE</navigator>
+</comp>

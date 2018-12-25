@@ -1,0 +1,20 @@
+page {
+  height: 100%;
+}
+
+.page-wrap {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.page-wrap.page-wrap--ios {
+  padding-top: 64px;
+}
+
+.page-wrap.page-wrap--iosX {
+  padding-top: 88px;
+}
+
+.page-wrap.page-wrap--android {
+  padding-top: 72px;
+}

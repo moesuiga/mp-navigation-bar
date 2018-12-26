@@ -9,6 +9,6 @@
     <view class="nav-title {{textStyle === 'light' ? 'light' : ''}}">{{title}}</view>
   </view>
 </view>
-<view style="padding-top: {{system === 'ios' ? 64 : system === 'iosX' ? 88 : 72}}px">
+<view style="padding-top: {{isIOS ? (barHeight + 44) : (barHeight + 48)}}px">
   <slot></slot>
 </view>

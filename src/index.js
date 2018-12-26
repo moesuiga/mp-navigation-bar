@@ -1,12 +1,6 @@
 const app = getApp();
-const { statusBarHeight, system, model } = wx.getSystemInfoSync();
+const { statusBarHeight, system } = wx.getSystemInfoSync();
 const isIOS = /^ios/i.test(system);
-const isIosX = isIOS ? /^iPhone\s+X/.test(model) : false;
-
-let sys = 'android';
-if (isIOS) {
-  sys = isIosX ? 'iosX' : 'ios';
-}
 
 Component({
   options: {
@@ -69,9 +63,8 @@ Component({
   },
   data: {
     isIOS,
-    system: sys,
     justOnePage: true,
-    barHeight: statusBarHeight,
+    barHeight: +statusBarHeight,
   },
   lifetimes: {
     attached() {

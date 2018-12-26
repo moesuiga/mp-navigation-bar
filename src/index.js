@@ -75,14 +75,20 @@ Component({
   },
   lifetimes: {
     attached() {
+      this._init();
+    }
+  },
+  attached() {
+    this._init();
+  },
+  methods: {
+    _init() {
       this.homePath = app.__APP_HOME_PATH__ || '/pages/home/home';
       const pages = getCurrentPages();
       this.setData({
         justOnePage: pages.length === 1
       });
-    }
-  },
-  methods: {
+    },
     /**
      * 点击返回按钮
      */

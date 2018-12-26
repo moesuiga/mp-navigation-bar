@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 984311 */
-  src: url('https://at.alicdn.com/t/font_984311_tueeblovqw.eot');
-  src: url('https://at.alicdn.com/t/font_984311_tueeblovqw.eot?#iefix') format('embedded-opentype'),
-  url('https://at.alicdn.com/t/font_984311_tueeblovqw.woff') format('woff'),
-  url('https://at.alicdn.com/t/font_984311_tueeblovqw.ttf') format('truetype'),
-  url('https://at.alicdn.com/t/font_984311_tueeblovqw.svg#iconfont') format('svg');
+  src: url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.eot');
+  src: url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.svg#iconfont') format('svg');
 }
 
 ._wrap {
@@ -33,13 +33,15 @@
   position: relative;
 
   .nav-actions {
+    @height: 31px;
     position: absolute;
     top: 50%;
     left: 14rpx;
+    z-index: 1;
     transform: translateY(-50%);
     min-width: 54px;
-    height: 32px;
-    border-radius: 16px;
+    height: @height;
+    border-radius: (@height / 2);
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -47,11 +49,25 @@
     font-size: 17px;
     background-color: rgba(255, 255, 255, 0.5);
     color: #000;
-    box-shadow: 0 0 1px rgba(234, 234, 234, 1) inset;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      width: 200%;
+      height: 200%;
+      border-radius: @height;
+      box-shadow: 0 0 0 1px rgba(234, 234, 234, 1) inset;
+      transform: scale(0.5, 0.5);
+      transform-origin: 0 0;
+    }
     &.light {
       color: #fff;
-      background-color: rgba(0, 0, 0, 0.15);
-      box-shadow: 0 0 0.5px rgba(234, 234, 234, 1);
+      background-color: rgba(0, 0, 0, 0.16);
+      &::after {
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.24) inset;
+      }
     }
   }
 
@@ -82,7 +98,12 @@
     align-items: center;
   }
 
+  &.light .nav-back:first-child::after {
+    background-color: rgba(255, 255, 255, 0.24);
+  }
+
   .nav-back {
+    font-size: 15px;
     &:first-child {
       position: relative;
       &::after {
@@ -94,6 +115,7 @@
         top: 50%;
         right: 0;
         transform: translateY(-50%) scaleX(0.5);
+        transform-origin: 100% 50%;
       }
     }
     &:last-child {
@@ -102,7 +124,7 @@
       }
     }
     &::before {
-      content: '\e7a1';
+      content: '\e601';
       font-family: iconfont;
     }
   }

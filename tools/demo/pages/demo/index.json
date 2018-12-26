@@ -1,5 +1,5 @@
 {
-  "navigationBarTextStyle": "light",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
     "comp": "../../components/index"
   }

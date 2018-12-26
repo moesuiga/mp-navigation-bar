@@ -4,7 +4,8 @@ Page({
     showHome: true,
     hideBack: false,
     bgColor: '#df3348',
-    textStyle: 'light'
+    textStyle: 'light',
+    color: 'white'
   },
   handleBack(e) {
     console.log(e);
@@ -19,7 +20,8 @@ Page({
     if (textStyle === 'light') {
       this.setData({
         textStyle: 'dark',
-        bgColor: '#ffffff'
+        bgColor: '#ffffff',
+        color: 'black'
       });
       wx.setNavigationBarColor({
         frontColor: '#000000',
@@ -29,7 +31,8 @@ Page({
     } else {
       this.setData({
         textStyle: 'light',
-        bgColor: '#df3348'
+        bgColor: '#df3348',
+        color: 'white'
       });
       wx.setNavigationBarColor({
         frontColor: '#ffffff',
@@ -52,5 +55,17 @@ Page({
   },
   customAction() {
     wx.navigateBack();
+  },
+  hideBack() {
+    this.setData({
+      showHome: true,
+      hideBack: true
+    });
+  },
+  hideHome() {
+    this.setData({
+      showHome: false,
+      hideBack: false
+    });
   }
 });

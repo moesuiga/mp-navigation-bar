@@ -1,3 +1,4 @@
+const app = getApp();
 const { statusBarHeight, system, model } = wx.getSystemInfoSync();
 const isIOS = /^ios/i.test(system);
 const isIosX = isIOS ? /^iPhone\s+X/.test(model) : false;
@@ -54,8 +55,7 @@ Component({
   },
   lifetimes: {
     attached() {
-      this.homePage = '/pages/home/home';
-      this._changeHomePage();
+      this.homePath = app.__APP_HOME_PATH__ || '/pages/home/home';
       const pages = getCurrentPages();
       this.setData({
         justOnePage: pages.length === 1
@@ -63,16 +63,6 @@ Component({
     }
   },
   methods: {
-    _changeHomePage() {
-      const { appHomePage } = wx;
-      if (appHomePage) {
-        if (typeof appHomePage === 'string') {
-          this.homePage = appHomePage;
-        } else if (typeof appHomePage === 'function') {
-          this.homePage = appHomePage.bind(wx)();
-        }
-      }
-    },
     /**
      * 点击返回按钮
      */
@@ -91,13 +81,13 @@ Component({
     _handleNavHome() {
       const detail = {};
       this.triggerEvent('home', detail);
-      const { homePage } = this;
-      if (homePage) {
+      const { homePath } = this;
+      if (homePath) {
         wx.switchTab({
-          url: homePage,
+          url: homePath,
           fail() {
             wx.reLaunch({
-              url: homePage
+              url: homePath
             });
           }
         });

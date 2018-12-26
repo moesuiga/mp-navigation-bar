@@ -46,6 +46,10 @@ $ npm install --save mp-navigation-bar
 </navigation-bar>
 ```
 
+**Tips**
+
+1. 回到首页，首页的默认值为 `/pages/home/home`，可以通过设置 `app.__APP_HOME_PATH__` 来修改回到首页的页面路径。
+
 ### 属性介绍
 
 | 属性名称 | 类型 | 默认值 | 是否必须 | 说明 |

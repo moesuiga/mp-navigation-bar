@@ -1,5 +1,5 @@
 wx.systemInfo = wx.getSystemInfoSync();
 
-wx.appHomePage = '/pages/index/index';
-
-App({});
+App({
+  __APP_HOME_PATH__: '/pages/index/index'
+});

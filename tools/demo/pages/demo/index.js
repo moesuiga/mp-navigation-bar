@@ -3,8 +3,8 @@ Page({
     title: 'DEMO',
     showHome: true,
     hideBack: false,
-    bgColor: '#ffffff',
-    textStyle: 'dark'
+    bgColor: '#df3348',
+    textStyle: 'light'
   },
   handleBack(e) {
     console.log(e);
@@ -21,10 +21,20 @@ Page({
         textStyle: 'dark',
         bgColor: '#ffffff'
       });
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '',
+        animation: {}
+      });
     } else {
       this.setData({
         textStyle: 'light',
         bgColor: '#df3348'
+      });
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '',
+        animation: {}
       });
     }
   },

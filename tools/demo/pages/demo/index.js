@@ -23,21 +23,11 @@ Page({
         bgColor: '#ffffff',
         color: 'black'
       });
-      wx.setNavigationBarColor({
-        frontColor: '#000000',
-        backgroundColor: '',
-        animation: {}
-      });
     } else {
       this.setData({
         textStyle: 'light',
         bgColor: '#df3348',
         color: 'white'
-      });
-      wx.setNavigationBarColor({
-        frontColor: '#ffffff',
-        backgroundColor: '',
-        animation: {}
       });
     }
   },

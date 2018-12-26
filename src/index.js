@@ -44,7 +44,27 @@ Component({
     },
     textStyle: {
       type: String,
-      value: 'dark'
+      value: 'dark',
+      observer(newStyle) {
+        if (!this.properties.autoCapsule) return;
+        if (newStyle === 'light') {
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#000000',
+            animation: {}
+          });
+        } else {
+          wx.setNavigationBarColor({
+            frontColor: '#000000',
+            backgroundColor: '#ffffff',
+            animation: {}
+          });
+        }
+      }
+    },
+    autoCapsule: {
+      type: Boolean,
+      value: true
     }
   },
   data: {

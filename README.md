@@ -52,15 +52,16 @@ $ npm install --save mp-navigation-bar
 
 ### 属性介绍
 
-| 属性名称 | 类型 | 默认值 | 是否必须 | 说明 |
-|---------|------|-------|----------|------|
-| title | String | WeChat | 否 | 导航栏标题 |
-| enable | Boolean | true | 否 | 是否允许点击返回按钮返回 |
-| delta | Number | 1 | 否 | 返回的页面数 |
-| show-home | Boolean | true | 否 | 是否显示首页按钮 |
-| hide-back | Boolean | false | 否 | 是否隐藏返回按钮 |
-| bg-color | String | white | 否 | 导航栏背景色 |
-| text-style | String | dark | 否 | 导航栏标题文字颜色 (dark/light) |
+| 属性名称      | 类型    | 默认值  | 是否必须 | 说明                                          |
+|--------------|---------|--------|----------|----------------------------------------------|
+| title        | String  | WeChat | 否       | 导航栏标题                                    |
+| enable       | Boolean | true   | 否       | 是否允许点击返回按钮返回                        |
+| delta        | Number  | 1      | 否       | 返回的页面数                                   |
+| show-home    | Boolean | true   | 否       | 是否显示首页按钮                               |
+| hide-back    | Boolean | false  | 否       | 是否隐藏返回按钮                               |
+| bg-color     | String  | white  | 否       | 导航栏背景色                                   |
+| text-style   | String  | dark   | 否       | 导航栏标题文字颜色 (dark/light)                 |
+| auto-capsule | Boolean | true   | 否       | 是否根据 `text-style` 自动更改小程序默认胶囊颜色 |
 
 ### 事件介绍
 
@@ -79,4 +80,4 @@ $ npm install --save mp-navigation-bar
 
 2. 第二个为用户自定义左上角位置的slot，`name=action`
 该部分通过 `absolute` 定位在左侧。
-建议使用时，设置 `show-home=false`,`hide-back=true`来隐藏默认 `action` 胶囊。
+使用时，建议设置 `show-home=false hide-back=true` 来隐藏默认 `action` 胶囊。

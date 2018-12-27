@@ -1,16 +1,9 @@
-@font-face {
-  font-family: 'iconfont';  /* project id 984311 */
-  src: url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.eot');
-  src: url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.eot?#iefix') format('embedded-opentype'),
-  url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.woff') format('woff'),
-  url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.ttf') format('truetype'),
-  url('https://at.alicdn.com/t/font_984311_nitytr7t1n8.svg#iconfont') format('svg');
-}
-
 ._wrap {
   width: 100%;
   box-sizing: border-box;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 999;
 }
 
@@ -31,64 +24,50 @@
   flex-direction: row;
   text-align: center;
   position: relative;
-
-  .nav-actions {
-    @height: 31px;
-    position: absolute;
-    top: 50%;
-    left: 14rpx;
-    z-index: 1;
-    transform: translateY(-50%);
-    min-width: 54px;
-    height: @height;
-    border-radius: (@height / 2);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-size: 17px;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #000;
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      z-index: -1;
-      width: 200%;
-      height: 200%;
-      border-radius: @height;
-      box-shadow: 0 0 0 1px rgba(234, 234, 234, 1) inset;
-      transform: scale(0.5, 0.5);
-      transform-origin: 0 0;
-    }
-    &.light {
-      color: #fff;
-      background-color: rgba(0, 0, 0, 0.16);
-      &::after {
-        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.24) inset;
-      }
-    }
-  }
-
-  .slot {
-    position: absolute;
-    left: 0;
-    height: 100%;
-  }
-
-  .nav-title {
-    margin: auto;
-    text-align: center;
-    font-weight: 700;
-    color: #000;
-    &.light {
-      color: #fff;
-    }
-  }
 }
 
 .nav-actions {
+  @height: 32px;
+  position: absolute;
+  top: 50%;
+  left: 14rpx;
+  z-index: 1;
+  transform: translateY(-50%);
+  min-width: 54px;
+  height: @height;
+  border-radius: (@height / 2);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 17px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+
+  .border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 200%;
+    height: 200%;
+    box-sizing: border-box;
+    border: 1px solid rgba(234, 234, 234, 1);
+    border-radius: @height;
+    transform-origin: 0 0;
+    transform: scale(0.5);
+  }
+
+  &.light {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.16);
+    .border {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+    }
+    .line {
+      background-color: rgba(255, 255, 255, 0.24);
+    }
+  }
+
   .nav-back,
   .nav-home {
     width: 43px;
@@ -98,42 +77,44 @@
     align-items: center;
   }
 
-  &.light .nav-back:first-child::after {
-    background-color: rgba(255, 255, 255, 0.24);
-  }
-
   .nav-back {
     font-size: 15px;
-    &:first-child {
-      position: relative;
-      &::after {
-        content: '';
-        width: 1px;
-        height: 18px;
-        background-color: rgba(204, 204, 204, 1);
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%) scaleX(0.5);
-        transform-origin: 100% 50%;
-      }
-    }
-    &:last-child {
-      &::after {
-        display: none;
-      }
-    }
-    &::before {
-      content: '\e601';
-      font-family: iconfont;
-    }
+    overflow: hidden;
   }
 
-  .nav-home {
-    &::before {
-      content: '\e7c6';
-      font-family: iconfont;
-    }
+  .line {
+    @h: 18px;
+    width: 1px;
+    height: @h;
+    margin-top: ((@height - @h) / 2);
+    background-color: rgba(204, 204, 204, 1);
+    transform: scaleX(0.5);
+    transform-origin: 100% 50%;
+  }
+
+  .back-image {
+    width: 8px;
+    height: 14px;
+  }
+  .home-image {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+.slot {
+  position: absolute;
+  left: 0;
+  height: 100%;
+}
+
+.nav-title {
+  margin: auto;
+  text-align: center;
+  font-weight: 700;
+  color: #000;
+  &.light {
+    color: #fff;
   }
 }
 // navigation end

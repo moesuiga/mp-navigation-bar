@@ -65,6 +65,7 @@ Component({
     isIOS,
     justOnePage: true,
     barHeight: +statusBarHeight,
+    refresh: true,
   },
   lifetimes: {
     attached() {
@@ -80,6 +81,28 @@ Component({
       const pages = getCurrentPages();
       this.setData({
         justOnePage: pages.length === 1
+      });
+
+      // 刷新一下导航条结构
+      // 使得该部分的 cover-view 层级高于页面内容的原生组件
+      setTimeout(() => {
+        this.refreshNavigation();
+      }, 100);
+    },
+
+    /**
+     * 刷新导航条 (切换两个完全相同的导航显示与隐藏)
+     *
+     * 通过该刷新操作，来达到覆盖页面原生组件的目的
+     *
+     * 原理：
+     * 1. cover-view 可以覆盖原生组件
+     * 2. 后渲染的原生组件层级更高
+     */
+    refreshNavigation() {
+      const { refresh } = this.data;
+      this.setData({
+        refresh: !refresh
       });
     },
     /**

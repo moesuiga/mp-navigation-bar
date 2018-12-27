@@ -6,6 +6,19 @@
 
 > 使用此组件需要依赖小程序基础库 2.2.1 以上版本，同时依赖开发者工具的 npm 构建。具体详情可查阅[官方 npm 文档](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)。
 
+## BUGs
+
+- [x] 页面内有原生组件，且能滚动到顶部时，会覆盖导航栏
+    使用 `cover-view` 组件替代原本的 `view` 组件来达到覆盖原生组件的目的
+
+- [ ] `input` 组件在较低位置(距离底部高度低于键盘高度)获取焦点时，弹出键盘会将导航栏顶起
+
+## TIPs
+
+1. 由于使用的 `cover-view` 组件，且用到了 `transform: scale(0.5)`。根据官方文档[tip](https://developers.weixin.qq.com/miniprogram/dev/component/cover-view.html#bug--tips)，需要依赖基础库 `2.1.0`
+
+2. 原生组件与原生组件之间的层级遵循后来居上的规则，如果有动态展示的原生组件，层级依然会高于导航栏，此时可以通过调用组件的 `refreshNavigation` 方法来刷新 `navigation-bar` 的重新渲染，达到不被覆盖的目的。
+
 ## 使用演示
 
 ![mp-navigation-bar demo](./docs/demo.gif)

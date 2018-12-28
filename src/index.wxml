@@ -1,7 +1,7 @@
 <cover-view wx:if="{{refresh}}" class="_wrap" style="background: {{bgColor}};">
   <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
   <cover-view class="navigation-bar" style="height: {{isIOS ? 44 : 48}}px;">
-    <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}">
+    <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">
       <cover-view class="border"></cover-view>
       <cover-view wx:if="{{!justOnePage && !hideBack}}" class="nav-back" bindtap="_handleNavBack">
         <cover-image class="back-image" wx:if="{{textStyle === 'light'}}" src="./images/back-light.png"></cover-image>
@@ -20,7 +20,7 @@
 <cover-view wx:else class="_wrap" style="background: {{bgColor}};">
   <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
   <cover-view class="navigation-bar" style="height: {{isIOS ? 44 : 48}}px;">
-    <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}">
+    <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">
       <cover-view class="border"></cover-view>
       <cover-view wx:if="{{!justOnePage && !hideBack}}" class="nav-back" bindtap="_handleNavBack">
         <cover-image class="back-image" wx:if="{{textStyle === 'light'}}" src="./images/back-light.png"></cover-image>

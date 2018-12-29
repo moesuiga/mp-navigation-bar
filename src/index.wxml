@@ -14,7 +14,7 @@
       </cover-view>
     </cover-view>
     <cover-view class="slot"><slot name="action"></slot></cover-view>
-    <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}">{{title}}</cover-view>
+    <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
   </cover-view>
 </cover-view>
 <cover-view wx:else class="_wrap" style="background: {{bgColor}};">
@@ -33,7 +33,7 @@
       </cover-view>
     </cover-view>
     <cover-view class="slot"><slot name="action"></slot></cover-view>
-    <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}">{{title}}</cover-view>
+    <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
   </cover-view>
 </cover-view>
 <view style="padding-top: {{isIOS ? (barHeight + 44) : (barHeight + 48)}}px; {{autoHeight ? '' : 'height: 100%;'}}">

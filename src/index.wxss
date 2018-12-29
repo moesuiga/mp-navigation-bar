@@ -111,6 +111,7 @@
   margin: auto;
   text-align: center;
   font-weight: 700;
+  font-size: 18px;
   color: #000;
   &.light {
     color: #fff;

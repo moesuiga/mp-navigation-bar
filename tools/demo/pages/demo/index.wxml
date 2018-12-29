@@ -6,7 +6,7 @@
   hide-back="{{hideBack}}"
   bindback="handleBack"
 >
-  <view wx:if="{{hideBack && !showHome}}" slot="action" class="custom-action" bindtap="customAction" style="color: {{color}}">BACK</view>
+  <cover-view wx:if="{{hideBack && !showHome}}" slot="action" class="custom-action" bindtap="customAction" style="color: {{color}}">BACK</cover-view>
   <view class="content">Demo Page</view>
   <button bindtap="changeTitle">Change Title</button>
   <button bindtap="changeStyle">Change Text Style</button>

@@ -13,6 +13,11 @@
 
 - [ ] `input` 组件在较低位置(距离底部高度低于键盘高度)获取焦点时，弹出键盘会将导航栏顶起
 
+- [ ] 由于使用了 `cover-view` 做导航栏，所以自定义 `action` 的 slot 也需要使用 `cover-view` 组件。
+    但是根据官方文档的提示：可能会无法显示。故暂不建议使用自定义 `action` 插槽。
+    `v0.0.4`
+    ![bug](./docs/bug.png)
+
 ## TIPs
 
 1. 由于使用的 `cover-view` 组件，且用到了 `transform: scale(0.5)`。根据官方文档[tip](https://developers.weixin.qq.com/miniprogram/dev/component/cover-view.html#bug--tips)，需要依赖基础库 `2.1.0`

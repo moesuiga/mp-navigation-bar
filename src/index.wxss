@@ -108,6 +108,10 @@
 }
 
 .nav-title {
+  max-width: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   margin: auto;
   text-align: center;
   font-weight: 700;

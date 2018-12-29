@@ -1,6 +1,17 @@
 const app = getApp();
-const { statusBarHeight, system } = wx.getSystemInfoSync();
+const { statusBarHeight, system, windowWidth } = wx.getSystemInfoSync();
 const isIOS = /^ios/i.test(system);
+
+function calcMaxWidth(windowWidth, isIOS) {
+  const left = isIOS ? 7 : 10;
+  const capsuleWidth = 43 * 2 + 1;
+  const padding = isIOS ? 0 : 5;
+  const total = (left + capsuleWidth + padding * 2) * 2;
+
+  // `- 10` 是为了两边留出一点空白
+  const maxWidth = windowWidth - total - 10;
+  return maxWidth;
+}
 
 Component({
   options: {
@@ -98,6 +109,7 @@ Component({
     justOnePage: true,
     barHeight: +statusBarHeight,
     refresh: true,
+    maxWidth: calcMaxWidth(windowWidth, isIOS)
   },
   lifetimes: {
     attached() {

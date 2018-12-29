@@ -7,6 +7,9 @@ Component({
     multipleSlots: true
   },
   properties: {
+    /**
+     * 导航标题
+     */
     title: {
       type: String,
       value: 'WeChat',
@@ -16,26 +19,44 @@ Component({
         });
       }
     },
+    /**
+     * 是否允许返回
+     */
     enable: {
       type: Boolean,
       value: true
     },
+    /**
+     * 返回页面数
+     */
     delta: {
       type: Number,
       value: 1
     },
+    /**
+     * 是否展示 home 按钮
+     */
     showHome: {
       type: Boolean,
       value: true
     },
+    /**
+     * 是否隐藏返回按钮
+     */
     hideBack: {
       type: Boolean,
       value: false
     },
+    /**
+     * 导航背景色
+     */
     bgColor: {
       type: String,
       value: 'white'
     },
+    /**
+     * 导航文本样式 light/dark
+     */
     textStyle: {
       type: String,
       value: 'dark',
@@ -56,7 +77,18 @@ Component({
         }
       }
     },
+    /**
+     * 是否根据 textStyle 自动更改微信原生胶囊的样式
+     */
     autoCapsule: {
+      type: Boolean,
+      value: true
+    },
+    /**
+     * 是否由内容自动撑开高度
+     * 为 `false` 时，会设置 `height: 100%`，请注意给父组件设置高度
+     */
+    autoHeight: {
       type: Boolean,
       value: true
     }

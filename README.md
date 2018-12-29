@@ -75,6 +75,7 @@ $ npm install --save mp-navigation-bar
 | bg-color     | String  | white  | 否       | 导航栏背景色                                   |
 | text-style   | String  | dark   | 否       | 导航栏标题文字颜色 (dark/light)                 |
 | auto-capsule | Boolean | true   | 否       | 是否根据 `text-style` 自动更改小程序默认胶囊颜色 |
+| auto-height  | Boolean | true   | 否       | 是否由内容自动撑开高度, 为 `false` 时，会设置 `height: 100%`，请注意给父组件设置高度 |
 
 ### 事件介绍
 

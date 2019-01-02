@@ -36,6 +36,6 @@
     <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
   </cover-view>
 </cover-view>
-<view style="padding-top: {{isIOS ? (barHeight + 44) : (barHeight + 48)}}px; {{autoHeight ? '' : 'height: 100%;'}}">
+<view style="padding-top: {{isIOS ? (barHeight + 44) : (barHeight + 48)}}px; {{autoHeight ? '' : 'height: 100%; box-sizing: border-box;'}}">
   <slot></slot>
 </view>

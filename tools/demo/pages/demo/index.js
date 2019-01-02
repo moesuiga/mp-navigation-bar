@@ -1,6 +1,6 @@
 Page({
   data: {
-    title: 'DEMO',
+    title: '这里有一个超长超长超长的title啊哈啊哈啊哈啊哈啊哈啊哈啊哈',
     showHome: true,
     hideBack: false,
     bgColor: '#df3348',

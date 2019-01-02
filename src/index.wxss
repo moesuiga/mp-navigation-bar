@@ -102,12 +102,18 @@
 }
 
 .slot {
+  overflow: visible;
   position: absolute;
+  top: 0;
   left: 0;
   height: 100%;
 }
 
 .nav-title {
+  max-width: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   margin: auto;
   text-align: center;
   font-weight: 700;

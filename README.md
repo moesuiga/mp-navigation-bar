@@ -20,11 +20,13 @@
 
 ## TIPs
 
-1. 由于使用的 `cover-view` 组件，且用到了 `transform: scale(0.5)`。根据官方文档[tip](https://developers.weixin.qq.com/miniprogram/dev/component/cover-view.html#bug--tips)，需要依赖基础库 `2.1.0`
+1. 回到首页，首页的默认值为 `/pages/home/home`，可以通过设置 `app.__APP_HOME_PATH__` 来修改回到首页的页面路径。
 
-2. 原生组件与原生组件之间的层级遵循后来居上的规则，如果有动态展示的原生组件，层级依然会高于导航栏，此时可以通过调用组件的 `refreshNavigation` 方法来刷新 `navigation-bar` 的重新渲染，达到不被覆盖的目的。
+2. 由于使用的 `cover-view` 组件，且用到了 `transform: scale(0.5)`。根据官方文档[tip](https://developers.weixin.qq.com/miniprogram/dev/component/cover-view.html#bug--tips)，需要依赖基础库 `2.1.0`
 
-3. `auto-stick` 属性如果是动态设置的，状态改变时，会触发页面内容重新渲染，从而可能引起预料外的问题。
+3. 原生组件与原生组件之间的层级遵循后来居上的规则，如果有动态展示的原生组件，层级依然会高于导航栏，此时可以通过调用组件的 `refreshNavigation` 方法来刷新 `navigation-bar` 的重新渲染，达到不被覆盖的目的。
+
+4. `auto-stick` 属性如果是动态设置的，状态改变时，会触发页面内容重新渲染，从而可能引起预料外的问题。
 
     如在安卓端，视频全屏播放时，设置 `hide-nav="true" auto-stick="true"` 会导致视频退出全屏并暂停。
 
@@ -69,10 +71,6 @@ $ npm install --save mp-navigation-bar
   <view class="page-content">Page content here.</view>
 </navigation-bar>
 ```
-
-**Tips**
-
-1. 回到首页，首页的默认值为 `/pages/home/home`，可以通过设置 `app.__APP_HOME_PATH__` 来修改回到首页的页面路径。
 
 ### 属性介绍
 

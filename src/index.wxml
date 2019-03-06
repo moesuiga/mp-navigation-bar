@@ -1,41 +1,43 @@
-<cover-view wx:if="{{refresh}}" class="_wrap" style="background: {{bgColor}};">
-  <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
-  <cover-view class="navigation-bar" style="height: {{isIOS ? 44 : 48}}px;">
-    <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">
-      <cover-view class="border"></cover-view>
-      <cover-view wx:if="{{!justOnePage && !hideBack}}" class="nav-back" bindtap="_handleNavBack">
-        <cover-image class="back-image" wx:if="{{textStyle === 'light'}}" src="./images/back-light.png"></cover-image>
-        <cover-image class="back-image" wx:else src="./images/back-dark.png"></cover-image>
+<block wx:if="{{!hideNav}}">
+  <cover-view wx:if="{{refresh}}" class="_wrap" style="background: {{bgColor}};">
+    <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
+    <cover-view class="navigation-bar" style="height: {{isIOS ? iosNavHeight : androidNavHeight}}px;">
+      <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">
+        <cover-view class="border"></cover-view>
+        <cover-view wx:if="{{!justOnePage && !hideBack}}" class="nav-back" bindtap="_handleNavBack">
+          <cover-image class="back-image" wx:if="{{textStyle === 'light'}}" src="./images/back-light.png"></cover-image>
+          <cover-image class="back-image" wx:else src="./images/back-dark.png"></cover-image>
+        </cover-view>
+        <cover-view wx:if="{{!justOnePage && !hideBack && showHome}}" class="line"></cover-view>
+        <cover-view wx:if="{{showHome}}" class="nav-home" bindtap="_handleNavHome">
+          <cover-image class="home-image" wx:if="{{textStyle === 'light'}}" src="./images/home-light.png"></cover-image>
+          <cover-image class="home-image" wx:else src="./images/home-dark.png"></cover-image>
+        </cover-view>
       </cover-view>
-      <cover-view wx:if="{{!justOnePage && !hideBack && showHome}}" class="line"></cover-view>
-      <cover-view wx:if="{{showHome}}" class="nav-home" bindtap="_handleNavHome">
-        <cover-image class="home-image" wx:if="{{textStyle === 'light'}}" src="./images/home-light.png"></cover-image>
-        <cover-image class="home-image" wx:else src="./images/home-dark.png"></cover-image>
-      </cover-view>
+      <cover-view class="slot"><slot name="action"></slot></cover-view>
+      <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
     </cover-view>
-    <cover-view class="slot"><slot name="action"></slot></cover-view>
-    <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
   </cover-view>
-</cover-view>
-<cover-view wx:else class="_wrap" style="background: {{bgColor}};">
-  <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
-  <cover-view class="navigation-bar" style="height: {{isIOS ? 44 : 48}}px;">
-    <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">
-      <cover-view class="border"></cover-view>
-      <cover-view wx:if="{{!justOnePage && !hideBack}}" class="nav-back" bindtap="_handleNavBack">
-        <cover-image class="back-image" wx:if="{{textStyle === 'light'}}" src="./images/back-light.png"></cover-image>
-        <cover-image class="back-image" wx:else src="./images/back-dark.png"></cover-image>
+  <cover-view wx:else class="_wrap" style="background: {{bgColor}};">
+    <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
+    <cover-view class="navigation-bar" style="height: {{isIOS ? iosNavHeight : androidNavHeight}}px;">
+      <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">
+        <cover-view class="border"></cover-view>
+        <cover-view wx:if="{{!justOnePage && !hideBack}}" class="nav-back" bindtap="_handleNavBack">
+          <cover-image class="back-image" wx:if="{{textStyle === 'light'}}" src="./images/back-light.png"></cover-image>
+          <cover-image class="back-image" wx:else src="./images/back-dark.png"></cover-image>
+        </cover-view>
+        <cover-view wx:if="{{!justOnePage && !hideBack && showHome}}" class="line"></cover-view>
+        <cover-view wx:if="{{showHome}}" class="nav-home" bindtap="_handleNavHome">
+          <cover-image class="home-image" wx:if="{{textStyle === 'light'}}" src="./images/home-light.png"></cover-image>
+          <cover-image class="home-image" wx:else src="./images/home-dark.png"></cover-image>
+        </cover-view>
       </cover-view>
-      <cover-view wx:if="{{!justOnePage && !hideBack && showHome}}" class="line"></cover-view>
-      <cover-view wx:if="{{showHome}}" class="nav-home" bindtap="_handleNavHome">
-        <cover-image class="home-image" wx:if="{{textStyle === 'light'}}" src="./images/home-light.png"></cover-image>
-        <cover-image class="home-image" wx:else src="./images/home-dark.png"></cover-image>
-      </cover-view>
+      <cover-view class="slot"><slot name="action"></slot></cover-view>
+      <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
     </cover-view>
-    <cover-view class="slot"><slot name="action"></slot></cover-view>
-    <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
   </cover-view>
-</cover-view>
-<view style="padding-top: {{isIOS ? (barHeight + 44) : (barHeight + 48)}}px; {{autoHeight ? '' : 'height: 100%; box-sizing: border-box;'}}">
+</block>
+<view style="padding-top: {{(hideNav && autoStick) ? 0 : isIOS ? (barHeight + iosNavHeight) : (barHeight + androidNavHeight)}}px; {{autoHeight ? '' : 'height: 100%; box-sizing: border-box;'}}">
   <slot></slot>
 </view>

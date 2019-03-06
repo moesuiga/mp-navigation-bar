@@ -24,6 +24,12 @@
 
 2. 原生组件与原生组件之间的层级遵循后来居上的规则，如果有动态展示的原生组件，层级依然会高于导航栏，此时可以通过调用组件的 `refreshNavigation` 方法来刷新 `navigation-bar` 的重新渲染，达到不被覆盖的目的。
 
+3. `auto-stick` 属性如果是动态设置的，状态改变时，会触发页面内容重新渲染，从而可能引起预料外的问题。
+
+    如在安卓端，视频全屏播放时，设置 `hide-nav="true" auto-stick="true"` 会导致视频退出全屏并暂停。
+
+    此种情况，请只设置 `hide-nav="true"` 来隐藏导航，在视频退出全屏时再设置显示导航。
+
 ## 使用演示
 
 ![mp-navigation-bar demo](./docs/demo.gif)
@@ -81,6 +87,8 @@ $ npm install --save mp-navigation-bar
 | text-style   | String  | dark   | 否       | 导航栏标题文字颜色 (dark/light)                 |
 | auto-capsule | Boolean | true   | 否       | 是否根据 `text-style` 自动更改小程序默认胶囊颜色 |
 | auto-height  | Boolean | true   | 否       | 是否由内容自动撑开高度, 为 `false` 时，会设置 `height: 100%`，请注意给父组件设置高度 (0.0.6)|
+| hide-nav     | Boolean | false  | 否       | 是否隐藏自定义导航 (0.0.9) |
+| auto-stick   | Boolean | false  | 否       | 隐藏自定义导航时，是否将内容自动上推到顶 (0.0.9) |
 
 ### 事件介绍
 

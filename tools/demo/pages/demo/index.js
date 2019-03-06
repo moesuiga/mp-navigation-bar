@@ -5,7 +5,8 @@ Page({
     hideBack: false,
     bgColor: '#df3348',
     textStyle: 'light',
-    color: 'white'
+    color: 'white',
+    hideNav: false,
   },
   handleBack(e) {
     console.log(e);
@@ -57,5 +58,24 @@ Page({
       showHome: false,
       hideBack: false
     });
-  }
+  },
+  /**
+   * 视频进入或退出全屏
+   * @param {Object} e 事件对象
+   */
+  fullscreenChange(e) {
+    // IOS 机型 视频进入全屏时，隐藏自定义导航
+    const { fullScreen } = e.detail;
+    // 安卓机型重新设置的话，会导致内容刷新，视频退出全屏并暂停
+    this.setData({
+      hideNav: !!fullScreen,
+    });
+    // const { system } = wx.getSystemInfoSync();
+    // const isIOS = /^ios/i.test(system);
+    // if (isIOS) {
+    //   this.setData({
+    //     hideNav: !!fullScreen,
+    //   });
+    // }
+  },
 });

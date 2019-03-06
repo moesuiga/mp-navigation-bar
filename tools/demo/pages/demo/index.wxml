@@ -5,6 +5,7 @@
   show-home="{{showHome}}"
   hide-back="{{hideBack}}"
   bindback="handleBack"
+  hide-nav="{{hideNav}}"
 >
   <cover-view wx:if="{{hideBack && !showHome}}" slot="action" class="custom-action" bindtap="customAction" style="color: {{color}}">BACK</cover-view>
   <view class="content">Demo Page</view>
@@ -15,7 +16,7 @@
   <button bindtap="hideBack">Hide Back</button>
   <button bindtap="hideHome">Hide Home</button>
 
-  <video src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></video>
+  <video src="https://img1.tuhu.org/videos/ProductVideo/b3b6/b3bc/7f87b83cf6430ca9e319e362_360.mp4" bindfullscreenchange="fullscreenChange"></video>
   <input type="text"></input>
   <view style="height: 600px;">撑高页面</view>
   <input type="text"></input>

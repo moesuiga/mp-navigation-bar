@@ -2,6 +2,11 @@ const app = getApp();
 const { statusBarHeight, system, windowWidth } = wx.getSystemInfoSync();
 const isIOS = /^ios/i.test(system);
 
+/**
+ * 计算标题文字的最大宽度值 (px)
+ * @param {Number} windowWidth 窗口宽度
+ * @param {Boolean} isIOS 是否iOS
+ */
 function calcMaxWidth(windowWidth, isIOS) {
   const left = isIOS ? 7 : 10;
   const capsuleWidth = 43 * 2 + 1;
@@ -102,14 +107,33 @@ Component({
     autoHeight: {
       type: Boolean,
       value: true
-    }
+    },
+    /**
+     * 隐藏导航
+     */
+    hideNav: {
+      type: Boolean,
+      value: false,
+    },
+    /**
+     * 自动置顶，hideNav 为 true 时生效
+     */
+    autoStick: {
+      type: Boolean,
+      value: false,
+    },
   },
   data: {
     isIOS,
+    iosNavHeight: 44,
+    androidNavHeight: 48,
     justOnePage: true,
     barHeight: +statusBarHeight,
     refresh: true,
-    maxWidth: calcMaxWidth(windowWidth, isIOS)
+    /**
+     * 标题文字的最大宽度
+     */
+    maxWidth: calcMaxWidth(windowWidth, isIOS),
   },
   lifetimes: {
     attached() {

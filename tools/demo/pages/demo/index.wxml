@@ -6,6 +6,7 @@
   hide-back="{{hideBack}}"
   bindback="handleBack"
   hide-nav="{{hideNav}}"
+  opacity="{{opacity}}"
 >
   <cover-view wx:if="{{hideBack && !showHome}}" slot="action" class="custom-action" bindtap="customAction" style="color: {{color}}">BACK</cover-view>
   <view class="content">Demo Page</view>

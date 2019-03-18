@@ -1,5 +1,5 @@
 <block wx:if="{{!hideNav}}">
-  <cover-view wx:if="{{refresh}}" class="_wrap" style="background: {{bgColor}};">
+  <cover-view wx:if="{{refresh}}" class="_wrap" style="background: {{bgColor}}; opacity: {{opacity}}">
     <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
     <cover-view class="navigation-bar" style="height: {{isIOS ? iosNavHeight : androidNavHeight}}px;">
       <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">
@@ -18,7 +18,7 @@
       <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
     </cover-view>
   </cover-view>
-  <cover-view wx:else class="_wrap" style="background: {{bgColor}};">
+  <cover-view wx:else class="_wrap" style="background: {{bgColor}}; opacity: {{opacity}}">
     <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
     <cover-view class="navigation-bar" style="height: {{isIOS ? iosNavHeight : androidNavHeight}}px;">
       <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">

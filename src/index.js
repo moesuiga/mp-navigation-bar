@@ -122,6 +122,15 @@ Component({
       type: Boolean,
       value: false,
     },
+    /**
+     * 自定义导航不透明度
+     * @version 0.0.10
+     * @default 1
+     */
+    opacity: {
+      type: Number,
+      value: 1
+    }
   },
   data: {
     isIOS,

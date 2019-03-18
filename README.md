@@ -87,6 +87,7 @@ $ npm install --save mp-navigation-bar
 | auto-height  | Boolean | true   | 否       | 是否由内容自动撑开高度, 为 `false` 时，会设置 `height: 100%`，请注意给父组件设置高度 (0.0.6)|
 | hide-nav     | Boolean | false  | 否       | 是否隐藏自定义导航 (0.0.9) |
 | auto-stick   | Boolean | false  | 否       | 隐藏自定义导航时，是否将内容自动上推到顶 (0.0.9) |
+| opacity      | Number  | 1      | 否       | 自定义导航的不透明度 (0.0.10)                  |
 
 ### 事件介绍
 

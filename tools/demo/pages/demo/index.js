@@ -7,6 +7,19 @@ Page({
     textStyle: 'light',
     color: 'white',
     hideNav: false,
+    opacity: 0,
+  },
+  onPageScroll(e) {
+    const { scrollTop } = e;
+    let opacity = scrollTop / 500;
+    if (opacity > 1) {
+      opacity = 1;
+    }
+    if (opacity !== this.data.opacity) {
+      this.setData({
+        opacity
+      });
+    }
   },
   handleBack(e) {
     console.log(e);

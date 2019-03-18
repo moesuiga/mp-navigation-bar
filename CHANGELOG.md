@@ -1,3 +1,12 @@
+## [0.0.10](https://github.com/moesuiga/mp-navigation-bar/compare/v0.0.9...v0.0.10) (2019-03-18)
+
+
+### Features
+
+* **opacity:** add property opacity ([e3be186](https://github.com/moesuiga/mp-navigation-bar/commit/e3be186))
+
+
+
 ## [0.0.9](https://github.com/moesuiga/mp-navigation-bar/compare/v0.0.8...v0.0.9) (2019-03-06)
 
 

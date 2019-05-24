@@ -168,6 +168,24 @@ Component({
     },
 
     /**
+     * 隐藏导航栏
+     */
+    disappearNavigation() {
+      this.setData({
+        hideNav: true,
+      });
+    },
+
+    /**
+     * 展示导航栏
+     */
+    displayNavigation() {
+      this.setData({
+        hideNav: false,
+      });
+    },
+
+    /**
      * 刷新导航条 (切换两个完全相同的导航显示与隐藏)
      *
      * 通过该刷新操作，来达到覆盖页面原生组件的目的

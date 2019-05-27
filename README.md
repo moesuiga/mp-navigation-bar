@@ -96,6 +96,15 @@ $ npm install --save mp-navigation-bar
 | bindback | Object | 点击返回按钮的事件 |
 | bindhome | Object | 点击主页按钮的事件 |
 
+### 方法
+
+| 方法名称             | 参数   | 说明                                                 |
+|---------------------|--------|------------------------------------------------------|
+| refreshNavigation   | -      | 刷新导航栏，用于提升在原生组件中的层级，覆盖新的原生组件  |
+| disappearNavigation | -      | 调用方法来隐藏导航栏，用于不方便通过传参的方式来隐藏的时候 (0.0.11) |
+| displayNavigation   | -      | 调用方法来显示导航栏，与 `disappearNavigation` 相对 (0.0.11)     |
+
+
 ### slot
 
 组件有两个 `slot`

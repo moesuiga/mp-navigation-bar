@@ -72,6 +72,28 @@ Page({
       hideBack: false
     });
   },
+  hideNavigation() {
+    const nav = this.selectComponent('#nav-id');
+    if (nav) {
+      nav.disappearNavigation();
+    }
+  },
+  showNavigation() {
+    const nav = this.selectComponent('#nav-id');
+    if (nav) {
+      nav.displayNavigation();
+    }
+  },
+  hideNavigationByProps() {
+    this.setData({
+      hideNav: true,
+    });
+  },
+  showNavigationByProps() {
+    this.setData({
+      hideNav: false,
+    });
+  },
   /**
    * 视频进入或退出全屏
    * @param {Object} e 事件对象

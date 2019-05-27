@@ -7,6 +7,7 @@
   bindback="handleBack"
   hide-nav="{{hideNav}}"
   opacity="{{opacity}}"
+  id="nav-id"
 >
   <cover-view wx:if="{{hideBack && !showHome}}" slot="action" class="custom-action" bindtap="customAction" style="color: {{color}}">BACK</cover-view>
   <view class="content">Demo Page</view>
@@ -16,6 +17,10 @@
   <button bindtap="showDefaultAction">Show Default Action</button>
   <button bindtap="hideBack">Hide Back</button>
   <button bindtap="hideHome">Hide Home</button>
+  <button bindtap="hideNavigation">Method Hide Navigation</button>
+  <button bindtap="showNavigation">Method Show Navigation</button>
+  <button bindtap="hideNavigationByProps">Props Hide Navigation</button>
+  <button bindtap="showNavigationByProps">Props Show Navigation</button>
 
   <video src="https://img1.tuhu.org/videos/ProductVideo/b3b6/b3bc/7f87b83cf6430ca9e319e362_360.mp4" bindfullscreenchange="fullscreenChange"></video>
   <input type="text"></input>

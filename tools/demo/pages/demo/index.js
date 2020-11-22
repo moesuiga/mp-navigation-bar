@@ -1,23 +1,32 @@
+const title = [
+  '这里有一个超长超长超长的title啊哈啊哈啊哈啊哈啊哈啊哈啊哈',
+  '短标题'
+];
+
 Page({
+  tid: 0,
   data: {
-    title: '这里有一个超长超长超长的title啊哈啊哈啊哈啊哈啊哈啊哈啊哈',
+    title: title[0],
     showHome: true,
     hideBack: false,
-    bgColor: '#df3348',
+    bgColor: 'rgba(223, 51, 72, 0)',
     textStyle: 'light',
     color: 'white',
     hideNav: false,
     opacity: 0,
+    useCustomAction: false,
   },
   onPageScroll(e) {
     const { scrollTop } = e;
-    let opacity = scrollTop / 500;
-    if (opacity > 1) {
-      opacity = 1;
+    let calcOpacity = scrollTop / 500;
+    if (calcOpacity > 1) {
+      calcOpacity = 1;
     }
-    if (opacity !== this.data.opacity) {
+    const { opacity, bgColor } = this.data;
+    if (calcOpacity !== opacity) {
       this.setData({
-        opacity
+        opacity: calcOpacity,
+        bgColor: bgColor.replace(/,[^,]+\)$/, `, ${calcOpacity})`),
       });
     }
   },
@@ -26,33 +35,39 @@ Page({
   },
   changeTitle() {
     this.setData({
-      title: 'NEW TITLE'
+      title: this.tid ? title[0] : title[1]
+    });
+    this.tid = this.tid ? 0 : 1;
+  },
+  useSlotTitle() {
+    this.setData({
+      title: '',
     });
   },
   changeStyle() {
-    const { textStyle } = this.data;
+    const { textStyle, opacity } = this.data;
     if (textStyle === 'light') {
       this.setData({
         textStyle: 'dark',
-        bgColor: '#ffffff',
+        bgColor: `rgba(255, 255, 255, ${opacity})`,
         color: 'black'
       });
     } else {
       this.setData({
         textStyle: 'light',
-        bgColor: '#df3348',
+        bgColor: `rgba(223, 51, 72, ${opacity})`,
         color: 'white'
       });
     }
   },
   useCustomAction() {
     this.setData({
-      showHome: false,
-      hideBack: true
+      useCustomAction: true,
     });
   },
   showDefaultAction() {
     this.setData({
+      useCustomAction: false,
       showHome: true,
       hideBack: false
     });

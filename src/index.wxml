@@ -1,43 +1,70 @@
-<block wx:if="{{!hideNav}}">
-  <cover-view wx:if="{{refresh}}" class="_wrap" style="background: {{bgColor}}; opacity: {{opacity}}">
-    <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
-    <cover-view class="navigation-bar" style="height: {{isIOS ? iosNavHeight : androidNavHeight}}px;">
-      <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">
-        <cover-view class="border"></cover-view>
-        <cover-view wx:if="{{!justOnePage && !hideBack}}" class="nav-back" bindtap="_handleNavBack">
-          <cover-image class="back-image" wx:if="{{textStyle === 'light'}}" src="./images/back-light.png"></cover-image>
-          <cover-image class="back-image" wx:else src="./images/back-dark.png"></cover-image>
-        </cover-view>
-        <cover-view wx:if="{{!justOnePage && !hideBack && showHome}}" class="line"></cover-view>
-        <cover-view wx:if="{{showHome}}" class="nav-home" bindtap="_handleNavHome">
-          <cover-image class="home-image" wx:if="{{textStyle === 'light'}}" src="./images/home-light.png"></cover-image>
-          <cover-image class="home-image" wx:else src="./images/home-dark.png"></cover-image>
-        </cover-view>
-      </cover-view>
-      <cover-view class="slot"><slot name="action"></slot></cover-view>
-      <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
-    </cover-view>
-  </cover-view>
-  <cover-view wx:else class="_wrap" style="background: {{bgColor}}; opacity: {{opacity}}">
-    <cover-view class="status-bar" style="height: {{barHeight}}px;"></cover-view>
-    <cover-view class="navigation-bar" style="height: {{isIOS ? iosNavHeight : androidNavHeight}}px;">
-      <cover-view wx:if="{{showHome || (!justOnePage && !hideBack)}}" class="nav-actions {{textStyle === 'light' ? 'light' : ''}}" style="{{isIOS ? '' : 'left: 10px; padding: 0 5px;'}}">
-        <cover-view class="border"></cover-view>
-        <cover-view wx:if="{{!justOnePage && !hideBack}}" class="nav-back" bindtap="_handleNavBack">
-          <cover-image class="back-image" wx:if="{{textStyle === 'light'}}" src="./images/back-light.png"></cover-image>
-          <cover-image class="back-image" wx:else src="./images/back-dark.png"></cover-image>
-        </cover-view>
-        <cover-view wx:if="{{!justOnePage && !hideBack && showHome}}" class="line"></cover-view>
-        <cover-view wx:if="{{showHome}}" class="nav-home" bindtap="_handleNavHome">
-          <cover-image class="home-image" wx:if="{{textStyle === 'light'}}" src="./images/home-light.png"></cover-image>
-          <cover-image class="home-image" wx:else src="./images/home-dark.png"></cover-image>
-        </cover-view>
-      </cover-view>
-      <cover-view class="slot"><slot name="action"></slot></cover-view>
-      <cover-view class="nav-title {{textStyle === 'light' ? 'light' : ''}}" style="max-width: {{maxWidth}}px;">{{title}}</cover-view>
-    </cover-view>
-  </cover-view>
+<block wx:if="{{ !hideNav }}">
+  <view class="_wrap" style="background: {{ bgColor }};">
+    <view class="status-bar" style="height: {{ barHeight }}px;"></view>
+    <view class="navigation-bar" style="height: {{ navHeight }}px; opacity: {{ opacity }}">
+      <view
+        class="nav-title {{ textStyle === 'light' ? 'light' : '' }}"
+        style="max-width: {{maxWidth}}px;"
+      >
+        <text wx:if="{{ title }}" class="nav-title-text">{{ title }}</text>
+        <slot wx:else name="title"></slot>
+      </view>
+    </view>
+    <view wx:if="{{ useCustomAction }}" class="slot">
+      <slot name="action"></slot>
+    </view>
+    <view
+      wx:elif="{{ showHome || ((!justOnePage && !hideBack) || (fromMp && canBackMp)) }}"
+      class="nav-actions {{ textStyle === 'light' ? 'light' : '' }}"
+      style="height: {{ navBtnHeight }}px; top: {{ barHeight + navBtnTop }}px; left: {{ navBtnLeft }}px; padding: 0 {{ navBtnPad }}px;"
+    >
+      <view class="border"></view>
+      <view
+        wx:if="{{ ((!justOnePage && !hideBack) || (fromMp && canBackMp)) }}"
+        class="nav-back"
+        bindtap="_handleNavBack"
+      >
+        <image
+          class="back-image"
+          wx:if="{{ textStyle === 'light' }}"
+          src="./images/back-light.png"
+        ></image>
+        <image
+          class="back-image"
+          wx:else
+          src="./images/back-dark.png"
+        ></image>
+      </view>
+      <view
+        wx:if="{{ ((!justOnePage && !hideBack) || (fromMp && canBackMp)) && showHome }}"
+        class="line"
+      ></view>
+      <view wx:if="{{ showHome }}" class="nav-home" bindtap="_handleNavHome">
+        <image
+          class="home-image"
+          wx:if="{{ textStyle === 'light' }}"
+          src="./images/home-light.png"
+        ></image>
+        <image
+          class="home-image"
+          wx:else
+          src="./images/home-dark.png"
+        ></image>
+      </view>
+    </view>
+  </view>
 </block>
-<view style="padding-top: {{(hideNav && autoStick) ? 0 : isIOS ? (barHeight + iosNavHeight) : (barHeight + androidNavHeight)}}px; {{autoHeight ? '' : 'height: 100%; box-sizing: border-box;'}}">
+
+<!-- 测试线 -->
+<!-- <view style="position: fixed; z-index: 1000; top: {{barHeight + navBtnTop}}px; left: 0; width: 100%; height: 1px; background: red;"></view>
+<view style="position: fixed; z-index: 1000; top: {{barHeight + navBtnTop + navBtnHeight}}px; left: 0; width: 100%; height: 1px; background: red;"></view>
+<view
+  style="position: fixed; z-index: 1001; top: {{rect.top}}px; left: {{ rect.left }}px; width: {{ rect.width }}px; height: {{ rect.height }}px; background: rgba(0, 255, 0, 0.4);"
+></view> -->
+
+<view
+  class="page-wrap-class {{ safeAreaBottom ? 'page-safe-area-bottom' : '' }}"
+  style="padding-top: {{ autoStick ? 0 : (barHeight + navHeight) }}px; {{ autoHeight ? '' : 'height: 100%; box-sizing: border-box;' }}"
+>
   <slot></slot>
 </view>

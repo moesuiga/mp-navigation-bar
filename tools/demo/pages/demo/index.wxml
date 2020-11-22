@@ -7,11 +7,18 @@
   bindback="handleBack"
   hide-nav="{{hideNav}}"
   opacity="{{opacity}}"
+  use-custom-action="{{ useCustomAction }}"
   id="nav-id"
 >
-  <cover-view wx:if="{{hideBack && !showHome}}" slot="action" class="custom-action" bindtap="customAction" style="color: {{color}}">BACK</cover-view>
-  <view class="content">Demo Page</view>
-  <button bindtap="changeTitle">Change Title</button>
+  <view wx:if="{{ useCustomAction }}" slot="action" class="custom-action" bindtap="customAction" style="color: {{color}}">BACK</view>
+  <view wx:if="{{ !title }}" slot="title" class="title-slot">
+    <image class="title-img" mode="widthFix" src="https://img1.tuhu.org/PeccancyCheXingYi/1AmYXvObY856LxQ39JlgGw_w144_h44.png"></image>
+  </view>
+  <view class="content">
+    <text>滚动页面查看，标题从透明到显示</text>
+  </view>
+  <button bindtap="changeTitle">Toggle Title</button>
+  <button bindtap="useSlotTitle">Slot Title</button>
   <button bindtap="changeStyle">Change Text Style</button>
   <button bindtap="useCustomAction">Use Custom Action</button>
   <button bindtap="showDefaultAction">Show Default Action</button>

@@ -22,6 +22,8 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   position: relative;
 }
@@ -29,8 +31,8 @@
 .nav-actions {
   @height: 32px;
   position: absolute;
-  bottom: 8px;
-  left: 7px;
+  // bottom: 8px;
+  // left: 7px;
   z-index: 1;
   min-width: 54px;
   height: @height;
@@ -110,11 +112,16 @@
 }
 
 .nav-title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   max-width: 150px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin: auto;
   text-align: center;
   font-weight: 700;
   font-size: 18px;
@@ -122,5 +129,18 @@
   &.light {
     color: #fff;
   }
+
+  &-text {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 // navigation end
+
+.page-safe-area-bottom {
+  padding-bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}

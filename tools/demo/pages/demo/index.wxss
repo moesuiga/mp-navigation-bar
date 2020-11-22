@@ -11,6 +11,17 @@
   text-align: center;
 }
 
+.title-slot {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.title-img {
+  width: 144rpx;
+  height: 44rpx;
+}
+
 button {
   margin-bottom: 20rpx;
 }

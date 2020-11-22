@@ -40,7 +40,6 @@ if (isIOS) {
 // 部分接口能使用但会返回 false
 // https://developers.weixin.qq.com/community/develop/doc/000cac40cf0eb8d3e429647c351c09
 if (wx.getMenuButtonBoundingClientRect) {
-  console.log('can I use');
   const rect = wx.getMenuButtonBoundingClientRect();
   navBtnLeft = windowWidth - rect.right;
   navBtnTop = rect.top - statusBarHeight;

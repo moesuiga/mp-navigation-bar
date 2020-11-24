@@ -14,7 +14,7 @@
       <slot name="action"></slot>
     </view>
     <view
-      wx:elif="{{ showHome || ((!justOnePage && !hideBack) || (fromMp && canBackMp)) }}"
+      wx:elif="{{ !hideHome || ((!justOnePage && !hideBack) || (fromMp && canBackMp)) }}"
       class="nav-actions {{ textStyle === 'light' ? 'light' : '' }}"
       style="height: {{ navBtnHeight }}px; top: {{ barHeight + navBtnTop }}px; left: {{ navBtnLeft }}px; padding: 0 {{ navBtnPad }}px;"
     >
@@ -36,10 +36,10 @@
         ></image>
       </view>
       <view
-        wx:if="{{ ((!justOnePage && !hideBack) || (fromMp && canBackMp)) && showHome }}"
+        wx:if="{{ ((!justOnePage && !hideBack) || (fromMp && canBackMp)) && !hideHome }}"
         class="line"
       ></view>
-      <view wx:if="{{ showHome }}" class="nav-home" bindtap="_handleNavHome">
+      <view wx:if="{{ !hideHome }}" class="nav-home" bindtap="_handleNavHome">
         <image
           class="home-image"
           wx:if="{{ textStyle === 'light' }}"

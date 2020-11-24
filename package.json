@@ -1,6 +1,6 @@
 {
   "name": "mp-navigation-bar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mini program custom navigation-bar component",
   "main": "miniprogram_dist/index.js",
   "keywords": [

@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/moesuiga/mp-navigation-bar/compare/v1.0.0...v1.0.1) (2020-11-24)
+
+
+### Bug Fixes
+
+* 修复hide-home参数未使用 ([dcba368](https://github.com/moesuiga/mp-navigation-bar/commit/dcba36810cd4395db3973250973e04bea77e4b6e))
+
+
+
 # [1.0.0](https://github.com/moesuiga/mp-navigation-bar/compare/v0.0.11...v1.0.0) (2020-11-22)
 
 
